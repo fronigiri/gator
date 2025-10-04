@@ -1,19 +1,57 @@
-A simple program that aggregates blog posts through RSS
+# Gator
 
-# Requirements
+A multi-player command line tool for aggregating RSS feeds and viewing the posts.
 
-- Postgres
-- Go
+## Installation
 
-# Install
-after cloning the repo, you can build the binary with the command ```go install .```
+Make sure you have the latest [Go toolchain](https://golang.org/dl/) installed as well as a local Postgres database. You can then install `gator` with:
 
+```bash
+go install ...
+```
 
-# Usage
-you run commands by using ```gator``` along with the given commands:
+## Config
 
-```feeds```: Displays all the feeds in the database
+Create a `.gatorconfig.json` file in your home directory with the following structure:
 
-```agg```: Collects all of the feeds form the RSS at a given interval (i.e 1m, 10s, 1h, etc.)
+```json
+{
+  "db_url": "postgres://username:@localhost:5432/database?sslmode=disable"
+}
+```
 
+Replace the values with your database connection string.
 
+## Usage
+
+Create a new user:
+
+```bash
+gator register <name>
+```
+
+Add a feed:
+
+```bash
+gator addfeed <url>
+```
+
+Start the aggregator:
+
+```bash
+gator agg 30s
+```
+
+View the posts:
+
+```bash
+gator browse [limit]
+```
+
+There are a few other commands you'll need as well:
+
+- `gator login <name>` - Log in as a user that already exists
+- `gator users` - List all users
+- `gator feeds` - List all feeds
+- `gator follow <url>` - Follow a feed that already exists in the database
+- `gator unfollow <url>` - Unfollow a feed that already exists in the database
