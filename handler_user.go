@@ -7,7 +7,7 @@ import (
 	"os"
 	"time"
 
-	"github.com/fronigiri/blog-aggregator/internal/database"
+	"github.com/fronigiri/gator/internal/database"
 	"github.com/google/uuid"
 )
 

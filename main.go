@@ -6,8 +6,8 @@ import (
 	"log"
 	"os"
 
-	"github.com/fronigiri/blog-aggregator/internal/config"
-	"github.com/fronigiri/blog-aggregator/internal/database"
+	"github.com/fronigiri/gator/internal/config"
+	"github.com/fronigiri/gator/internal/database"
 	_ "github.com/lib/pq"
 )
 

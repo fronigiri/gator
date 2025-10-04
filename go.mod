@@ -1,4 +1,4 @@
-module github.com/fronigiri/blog-aggregator
+module github.com/fronigiri/gator
 
 go 1.25.0
 
